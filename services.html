@@ -27,6 +27,15 @@
     <link rel="stylesheet" href="css/style.css">
     
   </head>
+  <style>
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #C3B1E1;
+  text-align: center;
+  padding: 10px;
+}
+</style>
   <body>
   
   <div class="site-wrap">
@@ -114,77 +123,16 @@
 
 
 
-  <div class="site-section"  data-aos="fade">
-    <div class="container-fluid">
-      
-      <div class="row justify-content-center">
-        <div class="col-md-7">
-          <div class="row mb-5">
-            <div class="col-12 ">
-              <h2 class="site-section-heading text-center">Our Services</h2>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
-              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
-                <span class="icon flaticon-camera display-3 text-primary mb-4 d-block"></span>
-                <h3 class="text-black h4">Camera</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum exercitationem quae id dolorum debitis.</p>
-                <p><strong class="font-weight-bold text-primary">$29</strong></p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
-              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
-                <span class="icon flaticon-picture display-3 text-primary mb-4 d-block"></span>
-                <h3 class="text-black h4">Wedding Photography</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum exercitationem quae id dolorum debitis.</p>
-                <p><strong class="font-weight-bold text-primary">$46</strong></p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
-              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
-                <span class="icon flaticon-sheep display-3 text-primary mb-4 d-block"></span>
-                <h3 class="text-black h4">Animal</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum exercitationem quae id dolorum debitis.</p>
-                <p><strong class="font-weight-bold text-primary">$24</strong></p>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
-              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
-                <span class="icon flaticon-frame display-3 text-primary mb-4 d-block"></span>
-                <h3 class="text-black h4">Portrait</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum exercitationem quae id dolorum debitis.</p>
-                <p><strong class="font-weight-bold text-primary">$40</strong></p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
-              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
-                <span class="icon flaticon-eiffel-tower display-3 text-primary mb-4 d-block"></span>
-                <h3 class="text-black h4">Travel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum exercitationem quae id dolorum debitis.</p>
-                <p><strong class="font-weight-bold text-primary">$35</strong></p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
-              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
-                <span class="icon flaticon-video-play display-3 text-primary mb-4 d-block"></span>
-                <h3 class="text-black h4">Video Editing</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum exercitationem quae id dolorum debitis.</p>
-                <p><strong class="font-weight-bold text-primary">$15</strong></p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="site-section"  data-aos="fade" class="center">
+              <h2 class="text-center">Hankito Countdown</h2>
   </div>
-    
-
-    
-    
-  </div>
+          </div>
+          <div class="center">
+                <h3 class="text-black h4">Time Remaining</h3>
+                <font color="C3B1E1">
+                <strong class="font-weight-bold"><p id="countdown"></p></strong>
+              </font>
+              </div>
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -210,6 +158,37 @@
       $('#lightgallery').lightGallery();
     });
   </script>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Sept 22, 2022 18:10:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
     
   </body>
 </html>
